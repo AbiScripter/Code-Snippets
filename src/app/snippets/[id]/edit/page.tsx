@@ -12,10 +12,16 @@ export default async function SnippetEditPage({
   params,
 }: SnippetEditPageProps) {
   const id = parseInt(params.id);
+  let snippet;
 
-  const snippet = await db.snippet.findFirst({
-    where: { id: id },
-  });
+  try {
+    snippet = await db.snippet.findFirst({
+      where: { id },
+    });
+  } catch (error) {
+    console.error("Prisma error:", error);
+    return notFound();
+  }
 
   if (!snippet) {
     return notFound();

@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 
-export const db = new PrismaClient();
+const db = new PrismaClient();
 
 db.snippet.create({
   data: {
@@ -8,3 +8,5 @@ db.snippet.create({
     code: "const abc = () => {}",
   },
 });
+
+export { db };
