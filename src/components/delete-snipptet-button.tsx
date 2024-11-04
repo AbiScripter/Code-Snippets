@@ -1,4 +1,5 @@
 "use client";
+
 import * as actions from "@/actions";
 
 export default function DeleteSnippetButton({ id }: { id: number }) {
